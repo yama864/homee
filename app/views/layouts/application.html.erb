@@ -13,17 +13,20 @@
   <body>
     <header>
       <div class="header-logo">
-        <%= link_to("TweetApp", "/") %>
+        <%= link_to("Homme", "/") %>
       </div>
       <ul class="header-menus">
         <li>
-          <%= link_to("TweetAppとは", "#") %>
+          <%= link_to("Hommeとは", "#") %>
         </li>
         <li>
-          <%= link_to("新規登録", "/users/sign_up") %>
+          <%= link_to("新規登録", new_user_registration_path) %>
         </li>
         <li>
-          <%= link_to("ログイン", "/users/sign_in") %>
+          <%= link_to("ログイン", new_user_session_path) %>
+        </li>
+        <li>
+          <%= link_to("ログアウト", destroy_user_session_path, method: :delete) %>
         </li>
       </ul>
     </header>
