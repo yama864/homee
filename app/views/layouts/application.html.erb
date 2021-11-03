@@ -11,6 +11,22 @@
   </head>
 
   <body>
+    <header>
+      <div class="header-logo">
+        <%= link_to("TweetApp", "/") %>
+      </div>
+      <ul class="header-menus">
+        <li>
+          <%= link_to("TweetAppとは", "#") %>
+        </li>
+        <li>
+          <%= link_to("新規登録", "/users/sign_up") %>
+        </li>
+        <li>
+          <%= link_to("ログイン", "/users/sign_in") %>
+        </li>
+      </ul>
+    </header>
     <%= yield %>
   </body>
 </html>

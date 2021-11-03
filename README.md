@@ -11,7 +11,7 @@
 | first_name         | string  | null: false               |
 | last_name_kana     | string  | null: false               |
 | first_name_kana    | string  | null: false               |
-| region_id          | integer | null: false               |
+| relation_id          | integer | null: false               |
 
 ### Association
 
