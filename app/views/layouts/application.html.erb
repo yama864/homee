@@ -28,6 +28,9 @@
         <li>
           <%= link_to("ログアウト", destroy_user_session_path, method: :delete) %>
         </li>
+        <li>
+          <%= link_to("招待", new_user_invitation_path) %>
+        </li>
       </ul>
     </header>
     <%= yield %>
