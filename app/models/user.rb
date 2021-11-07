@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :relation
+  has_one :group, foreign_key: "user_id"
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable,
@@ -20,4 +21,5 @@ class User < ApplicationRecord
 
   #has_many :comments
   #has_many :schedules
+
 end

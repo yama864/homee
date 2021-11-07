@@ -31,6 +31,7 @@
 ### Association
 
 - belongs_to :user
+- has_many :comments
 
 ## comments テーブル
 
@@ -44,6 +45,7 @@
 ### Association
 
 - belongs_to :user
+- belongs_to :group
 
 ## schedules テーブル
 
