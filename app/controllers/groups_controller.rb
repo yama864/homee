@@ -12,6 +12,18 @@ class GroupsController < ApplicationController
     end
   end
 
+  def signin
+  end
+
+  def signinmove
+    @group = Group.new(group_params)
+    if @group.save
+      redirect_to @group
+    else
+      render :signin
+    end
+  end
+
   def show
     @group = Group.find(params[:id])
   end
