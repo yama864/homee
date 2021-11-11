@@ -1,1 +1,11 @@
+<%= @group.group_name %>
 コメント画面
+
+<% @group.comments.each do |comment| %>
+    <p><%= comment.text %><%= comment.user.nickname %><%= comment.created_at %></p>
+    <%= image_tag comment.image.variant(resize: '500x500'), class: 'message-image' if comment.image.attached? %>
+<% end %>
+
+<div class="chat">
+  <%= render "comment" %>
+</div>
