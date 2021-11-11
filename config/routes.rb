@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     invitations: 'users/invitations'
   }
-  resources :groups, only: [:new, :create, :show]
+  resources :groups, only: [:new, :create, :show] do
+    resources :comments, only: [:index, :create]
+  end
 
   resources :groups do
     collection do
