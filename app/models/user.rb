@@ -1,7 +1,8 @@
 class User < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :relation
-  has_one :group, foreign_key: "user_id"
+  has_many :group_users
+  has_many :groups, through: :group_users
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable,
@@ -19,7 +20,7 @@ class User < ApplicationRecord
   validates :last_name_kana, presence: true, format: { with: /\A[ァ-ヶー－]+\z/ }
   validates :first_name_kana, presence: true, format: { with: /\A[ァ-ヶー－]+\z/ }
 
-  #has_many :comments
+  has_many :comments
   #has_many :schedules
 
 end

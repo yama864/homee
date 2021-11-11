@@ -1,0 +1,20 @@
+<h1>家族ルームに参加！</h1>
+<%= form_with url: signinmove_groups_path, class: 'registration-main', local: true do |f| %>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">Familyグループ名</label>
+      <span class="indispensable"></span>
+    </div>
+    <%= f.text_area :group_name, class:"input-default", id:"group_name", placeholder:"◯◯ファミリー", maxlength:"40" %>
+  </div>
+  <div class='form-text-wrap'>
+      <label class="form-text">パスワード</label>
+      <span class="indispensable"></span>
+    </div>
+    <%= f.password_field :password, class:"input-default", id:"password", placeholder:"6文字以上の半角英数字" %>
+    <p class='info-text'>※英字と数字の両方を含めて設定してください</p>
+  </div>
+  <div class='register-btn'>
+    <%= f.submit "家族ルームに参加！" ,class:"register-red-btn" %>
+  </div>
+<% end %>
