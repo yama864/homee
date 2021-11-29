@@ -9,6 +9,19 @@
   <% end %>
 </ul>
 
+<% @events.each do |event| %>
+    <p><%= event.person %></p><p><%= event.title %></p>
+    <% if event.start ==  event.end %>
+          <p><%= l event.start, format: :short %></p>
+    <% else %>
+          <p><%= l event.start, format: :short %><%= l event.end, format: :short %></p>
+    <% end %>
+<% end %>
+
 <%= link_to  group_comments_path(@group.id), class: 'btn btn-default' do %>
-  家族ルームに参加！
+  チャットルーム
+<% end %>
+
+<%= link_to  group_events_path(@group.id), class: 'btn btn-default' do %>
+  スケジュール一覧
 <% end %>

@@ -7,8 +7,12 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import "./calendar/event"
+import 'bootstrap'
+
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 //= require audiojs
+require('jquery')

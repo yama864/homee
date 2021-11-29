@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'events/index'
   root to:'home#top'
   get "/" => "home#top"
   get "/groups/signin" => "groups#signin"
@@ -7,6 +8,7 @@ Rails.application.routes.draw do
   }
   resources :groups, only: [:new, :create, :show] do
     resources :comments, only: [:index, :create]
+    resources :events, only: [:index, :new, :create, :edit, :update, :destroy]
   end
 
   resources :groups do

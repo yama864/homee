@@ -1,0 +1,23 @@
+<h1>予定一覧</h1>
+
+<%= link_to  group_path(@group.id), class: 'btn btn-default' do %>
+  グループトップに戻る
+<% end %>
+
+<% @group.events.each do |event| %>
+    <p><%= event.person %></p><p><%= event.title %></p>
+    <% if event.start ==  event.end %>
+          <p><%= l event.start, format: :short %></p>
+    <% else %>
+          <p><%= l event.start, format: :short %><%= l event.end, format: :short %></p>
+    <% end %>
+    <div class="event_manage">
+          <%= link_to "編集", "/groups/#{@group.id}/events/#{event.id}/edit", class: :prototype__btn %>
+          <%= link_to "削除", "/groups/#{@group.id}/events/#{event.id}", method: :delete, class: :prototype__btn %>
+    </div>
+<% end %>
+
+<%= link_to new_group_event_path, class: 'btn btn-default' do %>
+  予定作成
+<% end %>
+<div id='calendar'></div>
