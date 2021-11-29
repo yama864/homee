@@ -1,8 +1,12 @@
 <%= @group.group_name %>
 コメント画面
 
+<%= link_to  group_path(@group.id), class: 'btn btn-default' do %>
+  グループトップに戻る
+<% end %>
+
 <% @group.comments.each do |comment| %>
-    <p><%= comment.text %><%= comment.user.nickname %><%= comment.created_at %></p>
+    <p><%= comment.text %><%= comment.user.nickname %><%= comment&.created_at&.strftime('%m/%d %H:%M') %></p>
     <%= image_tag comment.image.variant(resize: '500x500'), class: 'message-image' if comment.image.attached? %>
 <% end %>
 

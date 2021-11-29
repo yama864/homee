@@ -31,6 +31,7 @@ class GroupsController < ApplicationController
   def show
     @group = Group.find(params[:id])
     @users = @group.users
+    @events = @group.events.where("start like ?","#{Date.today}%")
   end
 
   private

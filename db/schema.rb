@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_11_020400) do
+ActiveRecord::Schema.define(version: 2021_11_27_091147) do
 
   create_table "active_storage_attachments", charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -48,6 +48,17 @@ ActiveRecord::Schema.define(version: 2021_11_11_020400) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["group_id"], name: "index_comments_on_group_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "events", charset: "utf8", force: :cascade do |t|
+    t.string "title", null: false
+    t.datetime "start"
+    t.datetime "end"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "group_id"
+    t.string "person"
+    t.index ["group_id"], name: "index_events_on_group_id"
   end
 
   create_table "group_users", charset: "utf8", force: :cascade do |t|
@@ -99,6 +110,7 @@ ActiveRecord::Schema.define(version: 2021_11_11_020400) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "groups"
   add_foreign_key "comments", "users"
+  add_foreign_key "events", "groups"
   add_foreign_key "group_users", "groups"
   add_foreign_key "group_users", "users"
 end
