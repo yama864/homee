@@ -1,23 +1,38 @@
-<h1>予定一覧</h1>
-
-<%= link_to  group_path(@group.id), class: 'btn btn-default' do %>
-  グループトップに戻る
-<% end %>
-
-<% @group.events.each do |event| %>
-    <p><%= event.person %></p><p><%= event.title %></p>
-    <% if event.start ==  event.end %>
-          <p><%= l event.start, format: :short %></p>
-    <% else %>
-          <p><%= l event.start, format: :short %><%= l event.end, format: :short %></p>
-    <% end %>
-    <div class="event_manage">
-          <%= link_to "編集", "/groups/#{@group.id}/events/#{event.id}/edit", class: :prototype__btn %>
-          <%= link_to "削除", "/groups/#{@group.id}/events/#{event.id}", method: :delete, class: :prototype__btn %>
+<div class='event-index'>
+  <header>
+    <div class= 'event-header'>
+      <div class= 'nav-link-group'>
+        <%= link_to @group.group_name + 'top', group_path(@group.id) %>
+      </div>
+      <div class= 'nav-link-group'>
+        <%= link_to("予定作成", new_group_event_path, class: 'event-nav-link')%>
+      </div>
     </div>
-<% end %>
-
-<%= link_to new_group_event_path, class: 'btn btn-default' do %>
-  予定作成
-<% end %>
-<div id='calendar'></div>
+  </header>
+  <body>
+    <div class= 'event-list'>
+        <% @events.each do |event| %>
+          <div class= 'event-content'>
+            <div class= 'event-person'>
+              <%= event.person %>
+            </div>
+            <div class= 'event-title'>
+              <%= event.title %>
+            </div>
+            <% if event.start ==  event.end %>
+              <div class= 'event-time'>
+                <%= l event.start, format: :short %>
+              </div>
+            <% else %>
+              <div class= 'event-time'>
+                <%= l event.start, format: :short %><%=' ~ '%><%= l event.end, format: :short %>
+              </div>
+            <% end %>
+            <%= link_to "編集", "/groups/#{@group.id}/events/#{event.id}/edit", class: 'group-edit-btn' %>
+            <%= link_to "削除", "/groups/#{@group.id}/events/#{event.id}", method: :delete, class: 'group-edit-btn' %>
+          </div>
+        <% end %>
+    </div>
+    <div class='calendar', id='calendar'></div>
+  </body>
+</div>

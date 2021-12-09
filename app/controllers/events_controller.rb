@@ -1,12 +1,16 @@
 class EventsController < ApplicationController
+  before_action :move_to_top
+  
   def index
     @group = Group.find(params[:group_id])
     @event = Event.all
-    @events = @group.events
+    @events = @group.events.includes(:group).order(start: :DESC)
   end
 
   def new
     @event = Event.new
+    @group = Group.find(params[:group_id])
+    @events = @group.events.includes(:group).order(start: :DESC)
   end
 
   def create
@@ -50,4 +54,9 @@ class EventsController < ApplicationController
     params.require(:event).permit(:title, :start, :end, :group_id, :person)
   end
 
+  def move_to_top
+    unless user_signed_in?
+      redirect_to  controller: :home, action: :top
+    end
+  end
 end

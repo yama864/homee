@@ -1,11 +1,26 @@
-<%= form_with model: [@group, @comment], class: 'form', local: true do |f| %>
-  <%= render 'devise/shared/error_messages', resource: @comment, object: f.object%>
-  <div class="form-input">
-    <%= f.text_field :text, class: 'form-message', placeholder: 'type a message' %>
-    <label class="form-image">
-      <span class="image-file">画像</span>
-      <%= f.file_field :image, class: 'hidden' %>
-    </label>
-  </div>
-  <%= f.submit '送信', class: 'form-submit' %>
-<% end %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <div class="comment" id='comment'>
+      <div class="upper-comment">
+        <div class="comment-user">
+          <%= comment.user.nickname %>
+        </div>
+        <div class= "comment-content">
+          <div class= "comment-text" ><%= comment.text %></div>
+          <div class="comment-image">
+            <%= image_tag comment.image.variant(resize: '250x250'), class: 'message-image' if comment.image.attached? %>
+          </div>
+        </div>
+      </div>
+      <div class="lower-comment">
+          <div class="comment-date">
+            <%= comment&.created_at&.strftime('%m/%d %H:%M') %>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>

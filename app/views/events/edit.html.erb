@@ -1,8 +1,15 @@
-<div class="main">
-  <div class="inner">
-    <div class="form__wrapper">
-      <h2 class="page-heading">プロトタイプ編集</h2>
-      <%= render partial: "form" %>
+<div class="event-new">
+  <header>
+    <div class= 'event-header'>
+      <div class= 'nav-link-group'>
+        <%= link_to @group.group_name + 'top', group_path(@group.id) %>
+      </div>
+      <div class= 'nav-link-group'>
+        <%= link_to("予定トップ", group_events_path, class: 'event-nav-link')%>
+      </div>
     </div>
-  </div>
+  </header>
+  <body>
+      <%= render partial: "form" %>
+  </body>
 </div>
