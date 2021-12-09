@@ -10,6 +10,8 @@ import "channels"
 import "./calendar/event"
 import 'bootstrap'
 
+const images = require.context('../images', true)
+const imagePath = (name) => images(name, true)
 
 Rails.start()
 Turbolinks.start()

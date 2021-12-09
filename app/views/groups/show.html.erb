@@ -1,27 +1,63 @@
-<%= @group.group_name %>へようこそ
-
-<ul class="users">
-このルームの参加者
-  <% @users.each do |user| %>
-    <li>
-      <%= user.last_name %><%= user.first_name %>
-    </li>
-  <% end %>
-</ul>
-
-<% @events.each do |event| %>
-    <p><%= event.person %></p><p><%= event.title %></p>
-    <% if event.start ==  event.end %>
-          <p><%= l event.start, format: :short %></p>
-    <% else %>
-          <p><%= l event.start, format: :short %><%= l event.end, format: :short %></p>
-    <% end %>
-<% end %>
-
-<%= link_to  group_comments_path(@group.id), class: 'btn btn-default' do %>
-  チャットルーム
-<% end %>
-
-<%= link_to  group_events_path(@group.id), class: 'btn btn-default' do %>
-  スケジュール一覧
-<% end %>
+<div class='group-index'>
+  <header>
+    <div class= 'group-header'>
+      <div class= 'group-title'>
+        <%= @group.group_name + 'の部屋'%>
+      </div>
+    </div>
+  </header>
+  <body>
+    <div class='group-index-body'>
+      <div class= 'group-index-users'>
+       <p class='group-info-text'>グループメンバー</p>
+        <ul class= 'group-users-name'>
+          <% @users.each do |user| %>
+            <li>
+              <%= user.last_name %>
+              <%= user.first_name %><span class="indispensable-any">さん</span>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+      <div class= 'group-events'>
+        <p class='group-info-text'>今日の予定</p>
+          <div class= 'event-today'>
+            <% @events.each do |event| %>
+              <div class= 'event-content-today'>
+                <div class= 'event-person-today'>
+                  <%= event.person %>
+                </div>
+                <div class= 'event-title-today'>
+                  <%= event.title %>
+                </div>
+                <% if event.start ==  event.end %>
+                  <div class= 'event-time-today'>
+                    <%= l event.start, format: :shortest %>
+                  </div>
+                <% else %>
+                  <div class= 'event-time-today'>
+                    <%= l event.start, format: :shortest %>
+                    <%= ' 〜 '%>
+                    <%= l event.end, format: :shortest %>
+                  </div>
+                <% end %>
+              </div> 
+            <% end %>
+            <% unless @events.present?%>
+              <div class= 'event-non'>
+                <%= 'なし'%>
+              </div>
+            <% end %>
+          </div>
+          <div class= 'group-index-link'>
+            <%= link_to  group_comments_path(@group.id) do %>
+              <button class='top-link-chat-btn'>チャットルーム</button>
+            <% end %>
+            <%= link_to  group_events_path(@group.id) do %>
+              <button class='top-link-plan-btn'>スケジュール一覧</button>
+            <% end %>
+          </div>
+      </div>
+    </div>
+  </body>
+</div>

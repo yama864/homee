@@ -1,5 +1,16 @@
 ja:
   activerecord:
+    attributes:
+      user:
+        nickname: ニックネーム
+        last_name: 苗字
+        first_name: 名前
+        last_name_kana: 苗字のカナ
+        first_name_kana: 名前のカナ
+      group:
+        group_name: グループ名
+        password_confirmation: パスワード（確認）
+        password: パスワード
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
@@ -118,7 +129,7 @@ ja:
       greater_than: は%{count}より大きい値にしてください
       greater_than_or_equal_to: は%{count}以上の値にしてください
       inclusion: は一覧にありません
-      invalid: は不正な値です
+      invalid: が不正な値です
       less_than: は%{count}より小さい値にしてください
       less_than_or_equal_to: は%{count}以下の値にしてください
       model_invalid: 'バリデーションに失敗しました: %{errors}'
@@ -203,4 +214,5 @@ ja:
       default: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
+      shortest: "%H:%M"
     pm: 午後

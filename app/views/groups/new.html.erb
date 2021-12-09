@@ -1,5 +1,13 @@
-<h1>家族ルーム登録画面</h1>
+<div class='form-wrap'>
+  <div class='form-header'>
+    <h1 class='form-header-text'>
+      Familyグループ登録
+    </h1>
+  </div>
+</div>
 <%= form_with model: @group, url: groups_path, class: 'registration-main', local: true do |f| %>
+  <%= render 'devise/shared/error_messages', resource: @group, object: f.object%>
+  <p id="alert"><%= alert %></p>
   <div class="form-group">
     <div class='form-text-wrap'>
       <label class="form-text">Familyグループ名</label>
@@ -7,7 +15,8 @@
     </div>
     <%= f.text_area :group_name, class:"input-default", id:"group_name", placeholder:"◯◯ファミリー", maxlength:"40" %>
   </div>
-  <div class='form-text-wrap'>
+  <div class="form-group">
+    <div class='form-text-wrap'>
       <label class="form-text">パスワード</label>
       <span class="indispensable">必須</span>
     </div>

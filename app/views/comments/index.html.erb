@@ -1,15 +1,24 @@
-<%= @group.group_name %>
-コメント画面
-
-<%= link_to  group_path(@group.id), class: 'btn btn-default' do %>
-  グループトップに戻る
-<% end %>
-
-<% @group.comments.each do |comment| %>
-    <p><%= comment.text %><%= comment.user.nickname %><%= comment&.created_at&.strftime('%m/%d %H:%M') %></p>
-    <%= image_tag comment.image.variant(resize: '500x500'), class: 'message-image' if comment.image.attached? %>
-<% end %>
-
-<div class="chat">
-  <%= render "comment" %>
+<div class= 'group-chat'>
+  <header>
+    <div class="nav-link-group">
+      <%= link_to @group.group_name + 'top', group_path(@group.id) %>
+    </div>
+    <div class="chat">
+      <%= form_with model: [@group, @comment], class: 'form', local: true do |f| %>
+        <%= render 'devise/shared/error_messages', resource: @comment, object: f.object%>
+        <div class="form-input">
+          <%= f.text_field :text, class: 'form-message', placeholder: 'メッセージをどうぞ！' %>
+          <label class="form-image">
+            <span class="image-file">画像</span>
+            <%= f.file_field :image, direct_upload: true, class: 'hidden' %>
+          </label>
+        </div>
+        <%= f.submit '送る', class: 'form-submit' %>
+      <% end %>
+    </div>
+  </header>
+  <div class="messages">
+    <%= render partial: 'comment', collection: @comments %>
+  </div>
 </div>
+

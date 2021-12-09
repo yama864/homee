@@ -10,10 +10,10 @@ class User < ApplicationRecord
 
   validates :nickname, presence: true
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
-  validates_format_of :password, with: PASSWORD_REGEX, message: 'is invalid'
+  validates_format_of :password, with: PASSWORD_REGEX, message: 'を入力してください'
 
   PASSWORD_REGEX_2 = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
-  validates_format_of :password_confirmation, with: PASSWORD_REGEX_2, message: 'is invalid'
+  validates_format_of :password_confirmation, with: PASSWORD_REGEX_2, message: 'を入力してください'
 
   validates :last_name, presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/ }
   validates :first_name, presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/ }

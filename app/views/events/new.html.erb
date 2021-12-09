@@ -1,31 +1,49 @@
-<div class="row">
+<div class="event-new">
+  <header>
+    <div class= 'event-header'>
+      <div class= 'nav-link-group'>
+        <%= link_to @group.group_name + 'top', group_path(@group.id) %>
+      </div>
+      <div class= 'nav-link-group'>
+        <%= link_to("予定トップ", group_events_path, class: 'event-nav-link')%>
+      </div>
+    </div>
+  </header>
+  <body>
       <%= form_with model: @event, url: group_events_path, class: 'registration-main', local: true do |f| %>
         <%= render 'devise/shared/error_messages', resource: @event, object: f.object%>
-
-        <%= f.label :person, "誰の？"%>
-        <%= f.text_field :person, class:'form-control mb-3' %>
-
-        <%= f.label :title, "予定"%>
-        <%= f.text_field :title, class:'form-control mb-3' %> 
-
-        <div class="form-inline text-left">
-         <%= f.label :start,"開始時刻", {class:'control-label'}%>
-         <%= f.datetime_select :start, {
-           default: Date.today + 0.hours + 00.minutes,
-           use_month_numbers: true,
-           minute_step: 30
-           }, class: 'form-control' %>
+        <div class='form-group'>
+          <div class= 'form-text-wrap'>
+            <%= f.label :person, "誰の？", {class:'form-text'}%>
+            <%= f.text_field :person, class:'input-default' %>
+          </div>
         </div>
-         <br>
-        <div class="form-inline text-left"> 
-         <%= f.label :end,"終了時刻", {class:'control-label'}%>
-         <%= f.datetime_select :end, {default: Date.today + 0.hours + 00.minutes, use_month_numbers: true, minute_step: 30}, class: 'form-control' %>
+        <div class='form-group'>
+          <div class= 'form-text-wrap'>
+            <%= f.label :title, "予定", {class:'form-text'}%>
+            <%= f.text_field :title, class:'input-default' %>
+          </div>
         </div>
-         <%# 自動入力をするためにはdatetime_selectにしておく必要があります %>
-
-        <%= f.submit "登録",   class: "btn btn-primary js-event-create-btn" %>
+        <div class='form-group'>
+          <div class="form-text-wrap">
+            <%= f.label :start,"開始時刻", {class:'form-text'}%>
+            <%= f.datetime_select :start, {
+              default: Date.today + 0.hours + 00.minutes,
+              use_month_numbers: true,
+              minute_step: 30
+              }, class: 'input-time' %>
+          </div>
+        </div>
+           <br>
+        <div class='form-group'>
+          <div class="form-text-wrap"> 
+            <%= f.label :end,"終了時刻", {class:'form-text'}%>
+            <%= f.datetime_select :end, {default: Date.today + 0.hours + 00.minutes, use_month_numbers: true, minute_step: 30}, class: 'input-time' %>
+          </div>
+        </div>
+        <div class='register-btn'>
+          <%= f.submit "登録",   class: "register-red-btn" %>
+        </div>
       <% end %>
-</div>    
-<%= link_to group_events_path, class: 'btn btn-default' do %>
-  スケジュール一覧に戻る
-<% end %>
+  </body>
+</div>

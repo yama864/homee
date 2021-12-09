@@ -1,14 +1,30 @@
-<div class="main top-main">
-  <div class="top-message">
-    <h2>Homeeへようこそ</h2>
-    <p>Homeeは大切なお子様をご家族で見守る事ができるツールです。</p>
-  </div>
-</div>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Homee</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
 
-<%= link_to new_group_path, class: 'btn btn-default' do %>
-  家族ルーム作成
-<% end %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body class='top-body'>
+    <div class= 'top-wrapper' >
+      <div class= "top-right">
+      </div>
+      <div class= 'top-left'>
+      </div>
+      
+      <% if user_signed_in? %>
+        <%= link_to new_group_path do %>
+          <button class='btn btn-default'>家族ルーム作成</button>
+        <% end %>
 
-<%= link_to signin_groups_path, class: 'btn btn-default' do %>
-  家族ルームに参加！
-<% end %>
+        <%= link_to signin_groups_path, class: 'btn btn-default' do %>
+          <button class='btn btn-default'>家族ルームに参加！</button>
+        <% end %>
+      <% end %>
+    </div>
+  </body>
+</html>

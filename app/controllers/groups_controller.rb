@@ -1,6 +1,8 @@
 class GroupsController < ApplicationController
-  
+  before_action :move_to_top
+
   def new
+    @group = Group.new
   end
   
   def create
@@ -18,12 +20,18 @@ class GroupsController < ApplicationController
 
   def signinmove
     @group = Group.find_by(group_params_signin)
-    if !@group.users.include?(current_user)
-      @group.users << current_user
-      redirect_to @group
-    elsif @group.users.include?(current_user)
-      redirect_to @group
+    if @group && @group.authenticate(params[:password])
+       if !@group.users.include?(current_user)
+         @group.users << current_user
+         redirect_to @group
+       elsif @group.users.include?(current_user)
+         redirect_to @group
+       else
+         flash.now[:alert] = 'グループ名またはパスワードを正しく入力してください'
+         render :signin
+       end
     else
+      flash.now[:alert] = 'グループ名またはパスワードを正しく入力してください'
       render :signin
     end
   end
@@ -41,6 +49,12 @@ class GroupsController < ApplicationController
   end
 
   def group_params
-    params.permit(:id, :group_name, :password, { user_ids: [] })
+    params.require(:group).permit(:id, :group_name, :password, :password_confirmation, { user_ids: [] })
+  end
+
+  def move_to_top
+    unless user_signed_in?
+      redirect_to  controller: :home, action: :top
+    end
   end
 end

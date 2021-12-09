@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Homee</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -12,21 +12,21 @@
 
   <body>
     <header>
-      <div class="header-logo">
-        <%= link_to("Homme", "/") %>
+      <div class="header">
+        <div class="header-logo">
+          <a><%= link_to("Homee", "/", class: "nav-link-title") %></a>
+        </div>
+        <ul class="header-menus">
+          <% if user_signed_in? %>
+            <li><a><%= link_to current_user.nickname, root_path, class: "nav-link" %></a></li>
+            <li><a><%= link_to("ログアウト", destroy_user_session_path, method: :delete, class: "nav-link") %></a></li>
+            <li><a><%= link_to("Familyを招待", new_user_invitation_path, class: "nav-link") %></a></li>
+          <% else %>
+            <li><a><%= link_to("新規登録", new_user_registration_path, class: "nav-link") %></a></li>
+            <li><a><%= link_to("ログイン", new_user_session_path, class: "nav-link") %></a></li>
+          <% end %>
+        </ul>
       </div>
-      <ul class="header-menus">
-        <li><%= link_to("使い方", "#") %></li>
-        <% if user_signed_in? %>
-          <li><%= link_to current_user.nickname, root_path, class: "user-nickname" %></li>
-          <li><%= link_to("ログアウト", destroy_user_session_path, method: :delete) %></li>
-          <li><%= link_to("Familyを招待", new_user_invitation_path) %></li>
-        <% else %>
-          <li><%= link_to("新規登録", new_user_registration_path) %></li>
-          <li><%= link_to("ログイン", new_user_session_path) %></li>
-        <% end %>
-          
-      </ul>
     </header>
     <%= yield %>
   </body>
