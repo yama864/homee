@@ -5,7 +5,6 @@
     </div>
     <div class="chat">
       <%= form_with model: [@group, @comment], class: 'form', local: true do |f| %>
-        <%= render 'devise/shared/error_messages', resource: @comment, object: f.object%>
         <div class="form-input">
           <%= f.text_field :text, class: 'form-message', placeholder: '入力こちら' %>
           <label class="form-image">
