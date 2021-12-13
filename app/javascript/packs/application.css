@@ -191,7 +191,7 @@
 @media (max-width: 800px) {
   .nav-link-group a{
     color: #2d456f;
-    font-size: 1px;
+    font-size: 15px;
   }
 }
 
@@ -360,6 +360,7 @@ a{
   width: 30%;
   margin: 0 auto;
   margin-top: 50px;
+  text-align: center;
 }
 
 .register-red-btn {
@@ -374,6 +375,7 @@ a{
   box-shadow:0px 7px #4d201f;
   border-radius: 4px;
   opacity: 0.9;
+  text-align: center;
 }
 
 .register-red-btn:hover {
@@ -580,8 +582,12 @@ div.comment-text:empty{
     border: none;
     height: 20px;
     width: 100%;
-    font-size: 2px;
+    font-size: 6px;
   }
+}
+
+.image-file {
+  font-size: 5px;
 }
 
 .form-submit {
@@ -862,4 +868,8 @@ div.comment-text:empty{
 #alert {
   text-align: center;
   color: #f76b68;
+}
+
+.header-menus {
+  margin-right: 5px;
 }
