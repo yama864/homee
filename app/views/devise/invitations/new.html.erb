@@ -1,16 +1,28 @@
-<h2><%= t "devise.invitations.new.header" %></h2>
-
-<%= form_for(resource, as: resource_name, url: invitation_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <% resource.class.invite_key_fields.each do |field| -%>
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.text_field :email %>
-    </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit t("devise.invitations.new.submit_button") %>
+<div class='form-wrap'>
+  <div class='form-header'>
+    <h1 class='form-header-text'>
+      ご家族を招待しましょう！！
+    </h1>
   </div>
-<% end %>
+
+  <%= form_for(resource, as: resource_name, url: invitation_path(resource_name), html: { method: :post }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <% resource.class.invite_key_fields.each do |field| -%>
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">メールアドレス</label>
+          <%= f.email_field :email, class:"input-default", id:"email", placeholder:"PC・携帯どちらでも可", autofocus: true %>
+        </div>
+      </div>
+      <%= f.hidden_field :nickname, :value => nil %>
+      <%= f.hidden_field :last_name, :value => nil %>
+      <%= f.hidden_field :first_name, :value => nil %>
+      <%= f.hidden_field :last_name_kana, :value => nil %>
+      <%= f.hidden_field :first_name_kana, :value => nil %>
+    <% end -%>
+    <div class='register-btn'>
+      <%= f.submit "会員登録" ,class:"register-red-btn" %>
+    </div>
+  <% end %>
+</div>
