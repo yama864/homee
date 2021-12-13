@@ -191,7 +191,7 @@
 @media (max-width: 800px) {
   .nav-link-group a{
     color: #2d456f;
-    font-size: 15px;
+    font-size: 10px;
   }
 }
 
@@ -250,7 +250,7 @@ a{
 }
 
 .form-wrap{
-  margin-top: 50px;
+  margin-top: 80px;
   padding-top: 10px;
   background-size: cover;
   /*height: 1100px;*/
@@ -582,12 +582,13 @@ div.comment-text:empty{
     border: none;
     height: 20px;
     width: 100%;
-    font-size: 6px;
+    font-size: 8px;
   }
 }
 
 .image-file {
-  font-size: 5px;
+  font-size: 10px;
+  font-weight: bold;
 }
 
 .form-submit {
@@ -714,6 +715,7 @@ div.comment-text:empty{
   background-color:#eaf9fb;
   width:25vw;
   height: 100vh;
+  padding-top: 20px;
   text-align: center;
 }
 
@@ -741,12 +743,14 @@ div.comment-text:empty{
 .group-events {
   width: 75vw;
   height: 100vh;
+  padding-top: 20px;
 }
 
 @media (max-width: 700px) {
   .group-events {
     margin-top: 5px;
     width: 100vw;
+    padding-top: 30px;
   }
 }
 
@@ -871,5 +875,11 @@ div.comment-text:empty{
 }
 
 .header-menus {
-  margin-right: 5px;
+  margin-right: 10px;
+  margin-top: 15px;
+}
+
+*{
+  margin: 0px;
+  padding: 0px;
 }
