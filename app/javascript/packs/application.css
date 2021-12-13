@@ -582,12 +582,12 @@ div.comment-text:empty{
     border: none;
     height: 20px;
     width: 100%;
-    font-size: 8px;
+    font-size: 16px;
   }
 }
 
 .image-file {
-  font-size: 10px;
+  font-size: 7px;
   font-weight: bold;
 }
 
@@ -639,6 +639,7 @@ div.comment-text:empty{
 .event-content {
   display: flex;
   justify-content: center;
+  margin: 0px 10px;
 }
 
 .event-person {
@@ -771,6 +772,8 @@ div.comment-text:empty{
   display: flex;
   justify-content: center;
   margin-bottom: 15px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .event-person-today {
