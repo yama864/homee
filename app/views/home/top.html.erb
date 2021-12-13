@@ -11,20 +11,25 @@
   </head>
   <body class='top-body'>
     <div class= 'top-wrapper' >
-      <div class= "top-right">
-      </div>
-      <div class= 'top-left'>
-      </div>
       
-      <% if user_signed_in? %>
-        <%= link_to new_group_path do %>
-          <button class='btn btn-default'>家族ルーム作成</button>
-        <% end %>
-
-        <%= link_to signin_groups_path, class: 'btn btn-default' do %>
-          <button class='btn btn-default'>家族ルームに参加！</button>
-        <% end %>
-      <% end %>
+      <div class= "top-left">
+      </div>
+      <div class= 'top-right'>
+        <h1 class='top-right-title'>
+          Homee
+        </h1>
+        <p class='top-right-text'>
+          Homeeはお子さんの「ただいま！！」をお母さん、お父さんへお届けするためのツールです。チャット機能の他、その日の習い事などのスケジュールの管理機能もご用意しています
+        </p>
+        <div class='top-right-link'>
+          <% if user_signed_in? %>
+            <%= link_to("Familyグループ作成", new_group_path, class: 'top-right-link-room-create') %>
+            <%= link_to("Familyグループに参加", signin_groups_path, class: 'top-right-link-room-signin') %>
+          <% else %>
+            <%= link_to("Homeeアカウントの開設（無料）  >", new_user_registration_path, class: 'top-right-link-new') %>
+          <% end %>
+        </div>
+      </div>
     </div>
   </body>
 </html>
