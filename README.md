@@ -63,6 +63,16 @@ homee-app
 
   スケジュール機能は一覧とともにカレンダー表示をおこなっています。
 
+![image](https://user-images.githubusercontent.com/89680282/147397220-d1f6e547-1696-4cc6-87ac-18e035f71e5c.jpg)
+
+- レスポンシブ対応
+
+  タブレット、スマホ表示に対応する実装をおこなっています・
+
+![image](https://user-images.githubusercontent.com/89680282/147397336-8694ff21-aab0-466d-bc07-b71b65b7b667.jpg)
+
+![image](https://user-images.githubusercontent.com/89680282/147397350-7f0d8bda-c1b5-4e57-9da7-5ad2e143e58d.jpg)
+
   スプレッドシートにまとめた要件定義を記述。
 実装した機能についての画像やGIFおよびその説明	実装した機能について、それぞれどのような特徴があるのかを列挙する形で記述。画像はGyazoで、GIFはGyazoGIFで撮影すること。
 実装予定の機能	洗い出した要件の中から、今後実装予定の機能がある場合は、その機能を記述。
