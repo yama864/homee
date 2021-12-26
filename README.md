@@ -79,7 +79,8 @@ homee-app
 
 ローカルでの動作方法	git cloneしてから、ローカルで動作をさせるまでに必要なコマンドを記述。この時、アプリケーション開発に使用した環境を併記することを忘れないこと（パッケージやRubyのバージョンなど）
 
-
+# 開発環境
+  Ruby 2.6.5 / Ruby on rails 6.1.4.1
 
 # テーブル設計
 
@@ -142,4 +143,3 @@ homee-app
 
 - belongs_to :user
 - belongs_to :group
-
