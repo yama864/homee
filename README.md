@@ -45,7 +45,7 @@ homee-app
 
   登録済みユーザーはメールアドレスを入力し、招待メールを送信できます。招待されたユーザーはメールアドレス以外を入力し、ユーザー登録ができます。
 
-(https://user-images.githubusercontent.com/89680282/147396675-ea9cbcfb-23ca-432f-9261-718a7435d0e4.jpg)
+![image](https://user-images.githubusercontent.com/89680282/147396675-ea9cbcfb-23ca-432f-9261-718a7435d0e4.jpg)
 
 - グループ機能
 
